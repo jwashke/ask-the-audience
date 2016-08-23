@@ -19,3 +19,11 @@ for (var i = 0; i < buttons.length; i++) {
       socket.send('voteCast', this.innerText);
     });
 }
+
+socket.on('voteCount', function(message) {
+  console.log(message['A']);
+  document.getElementById('A-count').innerText = 'A: ' + message['A'];
+  document.getElementById('B-count').innerText = 'B: ' + message['B'];
+  document.getElementById('C-count').innerText = 'C: ' + message['C'];
+  document.getElementById('D-count').innerText = 'D: ' + message['D'];
+});
